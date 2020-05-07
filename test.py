@@ -14,22 +14,22 @@ sheep_afford = money // sheep_price
 
 if money < chicken_price:
     print("None")
-elif money >= chicken_price:
+elif chicken_price <= money < goat_price:
     if chicken_afford == 1:
         print("1 chicken")
     if chicken_afford > 1:
         print(str(chicken_afford) + " chickens")
-elif money >= goat_price:
+elif goat_price <= money < pig_price:
     if goat_afford == 1:
         print("1 goat")
     if goat_afford > 1:
         print(str(goat_afford) + " goats")
-elif money >= pig_price:
+elif pig_price <= money < cow_price:
     if pig_afford == 1:
         print("1 pig")
     if pig_afford > 1:
         print(str(pig_afford) + " pigs")
-elif money >= cow_price:
+elif cow_price <= money < sheep_price:
     if cow_afford == 1:
         print("1 cow")
     if cow_afford > 1:
