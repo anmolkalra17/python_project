@@ -1,4 +1,4 @@
-# Python Project
+## Python Projects
 ### 1. Coffee Machine
 ### 2. test code
 ### 3. Lucky 7
