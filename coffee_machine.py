@@ -71,7 +71,7 @@ def resources_in(water_in, milk_in, coffee_in, disposable_cups_in, money_in):
     print("The coffee machine has:")
     print(str(water_in) + " of water")
     print(str(milk_in) + " of milk")
-    print(str(coffee_in) + " of coffee")
+    print(str(coffee_in) + " of coffee beans")
     print(str(disposable_cups_in) + " of disposable cups")
     print(str(money_in) + " of money")
 
@@ -109,6 +109,7 @@ def action(action_in, water_in, milk_in, coffee_in, disposable_cups_in, money_in
 
     if action_in == "take":
         print("I gave you $" + str(money_in))
+        print()
         money_in -= money_in
         resources_in(water_in, milk_in, coffee_in, disposable_cups_in, money_in)
 
