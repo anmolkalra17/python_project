@@ -14,27 +14,6 @@ disposable_cups_in = 9
 money_in = 550
 
 
-def espresso_cost(water_in, milk_in, coffee_in, money_in):
-    water_in -= 250
-    milk_in -= 0
-    coffee_in -= 16
-    money_in -= 4
-
-
-def latte_cost(water_in, milk_in, coffee_in, money_in):
-    water_in -= 350
-    milk_in -= 75
-    coffee_in -= 20
-    money_in -= 7
-
-
-def cappuccino_cost(water_in, milk_in, coffee_in, money_in):
-    water_in -= 200
-    milk_in -= 100
-    coffee_in -= 12
-    money_in -= 6
-
-
 def calc_cups(water_in, milk_in, coffee_in):
     n_cups = 0
     while water_in >= water_in and milk_in >= milk_in and coffee_in >= coffee_in:
@@ -76,6 +55,31 @@ def resources_in(water_in, milk_in, coffee_in, disposable_cups_in, money_in):
     print(str(money_in) + " of money")
     print()
 
+
+def espresso_cost(water_in, milk_in, coffee_in, disposable_cups_in, money_in):
+    water_in -= 250
+    milk_in -= 0
+    coffee_in -= 16
+    money_in += 4
+    disposable_cups_in -= 1
+    resources_in(water_in, milk_in, coffee_in, disposable_cups_in, money_in)
+
+def latte_cost(water_in, milk_in, coffee_in, disposable_cups_in, money_in):
+    water_in -= 350
+    milk_in -= 75
+    coffee_in -= 20
+    money_in += 7
+    disposable_cups_in -= 1
+    resources_in(water_in, milk_in, coffee_in, disposable_cups_in, money_in)
+
+def cappuccino_cost(water_in, milk_in, coffee_in, disposable_cups_in, money_in):
+    water_in -= 200
+    milk_in -= 100
+    coffee_in -= 12
+    money_in += 6
+    disposable_cups_in -= 1
+    resources_in(water_in, milk_in, coffee_in, disposable_cups_in, money_in)
+
 def action(action_in, water_in, milk_in, coffee_in, disposable_cups_in, money_in):
     if action_in == "buy":
         print("What do you want?\n")
@@ -86,16 +90,13 @@ def action(action_in, water_in, milk_in, coffee_in, disposable_cups_in, money_in
         print()
 
         if choice == 1:
-            espresso_cost(water_in, milk_in, coffee_in, money_in)
-            resources_in(water_in, milk_in, coffee_in, disposable_cups_in, money_in)
+            espresso_cost(water_in, milk_in, coffee_in, disposable_cups_in, money_in)
 
         if choice == 2:
-            latte_cost(water_in, milk_in, coffee_in, money_in)
-            resources_in(water_in, milk_in, coffee_in, disposable_cups_in, money_in)
+            latte_cost(water_in, milk_in, coffee_in, disposable_cups_in, money_in)
 
         if choice == 3:
-            cappuccino_cost(water_in, milk_in, coffee_in, money_in)
-            resources_in(water_in, milk_in, coffee_in, disposable_cups_in, money_in)
+            cappuccino_cost(water_in, milk_in, coffee_in, disposable_cups_in, money_in)
 
     if action_in == "fill":
         water = int(input("Write how many ml of water do you want to add:\n"))
