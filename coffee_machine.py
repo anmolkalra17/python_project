@@ -82,6 +82,7 @@ def action(action_in, water_in, milk_in, coffee_in, disposable_cups_in, money_in
         print('2 - latte')
         print('3 - cappuccino')
         choice = int(input())
+        print()
 
         if choice == 1:
             espresso_cost(water_in, milk_in, coffee_in, money_in)
