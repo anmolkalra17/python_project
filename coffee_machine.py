@@ -13,13 +13,16 @@ coffee_in = 120
 disposable_cups_in = 9
 money_in = 550
 
+water_1c = 200
+milk_1c = 100
+coffee_1c = 15
 
 def calc_cups(water_in, milk_in, coffee_in):
     n_cups = 0
-    while water_in >= water_in and milk_in >= milk_in and coffee_in >= coffee_in:
-        water_in -= water_in
-        milk_in -= milk_in
-        coffee_in -= coffee_in
+    while water_in >= water_1c and milk_in >= milk_1c and coffee_in >= coffee_1c:
+        water_in -= water_1c
+        milk_in -= milk_1c
+        coffee_in -= coffee_1c
         n_cups += 1
     return n_cups
 
@@ -39,11 +42,11 @@ def output(needed, left, n):
         print("Yes, I can make that amount of coffee")
 
 
-def resources_needed(water_in, milk_in, coffee_in, needed):
+def resources_needed(water_1c, milk_1c, coffee_1c, needed):
     print("For" + str(needed) + " cups of coffee you will need:")
-    print(str(water_in * needed) + " ml of water")
-    print(str(milk_in * needed) + " ml of milk")
-    print(str(coffee_in * needed) + " g of coffee beans")
+    print(str(water_1c * needed) + " ml of water")
+    print(str(milk_1c * needed) + " ml of milk")
+    print(str(coffee_1c * needed) + " g of coffee beans")
 
 
 def resources_in(water_in, milk_in, coffee_in, disposable_cups_in, money_in):
