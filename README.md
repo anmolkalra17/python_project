@@ -6,4 +6,4 @@
 ### 5. Zookeeper
 ### 6. Mean
 
-Find more info about this project on [JetBrains Academy](https://www.jetbrains.com/academy/).
+Find more info about these projects on [JetBrains Academy](https://www.jetbrains.com/academy/).
