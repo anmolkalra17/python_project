@@ -1,133 +1,108 @@
-def coffee_in_machine(water_in, milk_in, coffee_in, disposable_cups_in, money_in):
-    def resources_in(water_in, milk_in, coffee_in, disposable_cups_in, money_in):
-        water = water_in
-        milk = milk_in
-        coffee = coffee_in
-        cups = disposable_cups_in
-        money = money_in
-
-        def print_values():
-            print("The coffee_in machine has:")
-            print(str(water) + " of water")
-            print(str(milk) + " of milk")
-            print(str(coffee) + " of coffee beans")
-            print(str(cups) + " of disposable cups")
-            print(str(money) + " of money")
-            print()
-
-        print_values()
-
-    def make_espresso(water_in, milk_in, coffee_in, disposable_cups_in, money_in):
-        if water_in >= 250 and coffee_in >= 16 and disposable_cups_in >= 1:
-            print("I have enough resources, making you a coffee!")
-            print()
-            water_in -= 250
-            milk_in -= 0
-            coffee_in -= 16
-            money_in += 4
-            disposable_cups_in -= 1
-        elif water_in < 250:
-            print("Sorry, not enough water!")
-        elif coffee_in < 16:
-            print("Sorry, not enough coffee!")
-        elif disposable_cups_in < 1:
-            print("Sorry, not enough disposable cups!")
-
-    def make_latte(water_in, milk_in, coffee_in, disposable_cups_in, money_in):
-        if water_in >= 350 and milk_in >= 75 and coffee_in >= 20 and disposable_cups_in >= 1:
-            print("I have enough resources, making you a coffee!")
-            print()
-            water_in -= 350
-            milk_in -= 75
-            coffee_in -= 20
-            money_in += 7
-            disposable_cups_in -= 1
-        elif water_in < 350:
-            print("Sorry, not enough water!")
-        elif milk_in < 75:
-            print("Sorry, not enough milk!")
-        elif coffee_in < 20:
-            print("Sorry, not enough coffee!")
-        elif disposable_cups_in < 1:
-            print("Sorry, not enough disposable cups!")
-
-    def make_cappuccino(water_in, milk_in, coffee_in, disposable_cups_in, money_in):
-        if water_in >= 200 and milk_in >= 100 and coffee_in >= 12 and disposable_cups_in >= 1:
-            print("I have enough resources, making you a coffee_in!")
-            print()
-            water_in -= 200
-            milk_in -= 100
-            coffee_in -= 12
-            money_in += 6
-            disposable_cups_in -= 1
-
-        elif water_in < 200:
-            print("Sorry, not enough water!")
-        elif milk_in < 100:
-            print("Sorry, not enough milk!")
-        elif coffee_in < 12:
-            print("Sorry, not enough coffee!")
-        elif disposable_cups_in < 1:
-            print("Sorry, not enough disposable cups!")
-
-    def action(action_in, water_in, milk_in, coffee_in, disposable_cups_in, money_in):
-        if action_in == "buy":
-            print("What do you want?\n")
-            print('1 - espresso')
-            print('2 - latte')
-            print('3 - cappuccino')
-            print('back - to main menu')
-            choice = input()
-
-            print()
-
-            if choice == "back":
-                loop()
-
-            if int(choice) == 1:
-                make_espresso(water_in, milk_in, coffee_in, disposable_cups_in, money_in)
-                loop()
-
-            if int(choice) == 2:
-                make_latte(water_in, milk_in, coffee_in, disposable_cups_in, money_in)
-                loop()
-
-            if int(choice) == 3:
-                make_cappuccino(water_in, milk_in, coffee_in, disposable_cups_in, money_in)
-                loop()
-
-        if action_in == "fill":
-            water_add = int(input("Write how many ml of water do you want to add:\n"))
-            milk_add = int(input("Write how many ml of milk do you want to add:\n"))
-            coffee_add = int(input("Write how many grams of coffee beans do you want to add:\n"))
-            disposable_cups_add = int(input("Write how many disposable cups of coffee_in do you want to add:\n"))
-
-            water_in += water_add
-            milk_in += milk_add
-            coffee_in += coffee_add
-            disposable_cups_in += disposable_cups_add
-            resources_in(water_in, milk_in, coffee_in, disposable_cups_in, money_in)
-            loop()
-
-        if action_in == "take":
-            print("I gave you $" + str(money_in))
-            print()
-            money_in -= money_in
-            loop()
-
-        if action_in == "remaining":
-            resources_in(water_in, milk_in, coffee_in, disposable_cups_in, money_in)
-            loop()
-
-    def loop():
-        action_in = input("Write action (buy, fill, take, remaining, exit):\n")
-        while True:
-            if action_in != "exit":
-                action(action_in, water_in, milk_in, coffee_in, disposable_cups_in, money_in)
-            elif action_in == "exit":
-                return False
-
-    loop()
+# Write your code here
+water = 400
+milk = 540
+beans = 120
+cups = 9
+money = 550
+# remaining action
+def remaining():
+    print('The coffee machine has:')
+    print(water, 'of water')
+    print(milk, 'of milk')
+    print(beans, 'of coffee beans')
+    print(cups, 'of disposable cups')
+    print(money, 'of money')
+# buy action
+def buy():
+    print('What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:')
+    cmd = input()
+    if cmd == 'back':
+        pass
+    else:
+        global water
+        global beans
+        global money
+        global milk
+        global cups
+        num = int(str(cmd))
+        avl_list = [water, milk, beans, cups]
+        ingridients = ['water', 'milk', 'coffee beans', 'disposable cups']
+        if num == 1:
+            req_list = [250, 0, 16, 1]
+            for i in range(4):
+                if avl_list[i] < req_list[i]:
+                    print(f'Sorry, not enough {ingridients[i]}!')
+                    break
+            else:
+                print('I have enough resources, making you a coffee!')
+                water -= 250
+                beans -= 16
+                cups -= 1
+                money += 4
+        elif num == 2:
+            req_list = [350, 75, 20, 1]
+            for i in range(4):
+                if avl_list[i] < req_list[i]:
+                    print(f'Sorry, not enough {ingridients[i]}!')
+                    break
+            else:
+                print('I have enough resources, making you a coffee!')
+                water -= 350
+                milk -= 75
+                beans -= 20
+                cups -= 1
+                money += 7
+        elif num == 3:
+            req_list = [200, 100, 12, 1]
+            for i in range(4):
+                if avl_list[i] < req_list[i]:
+                    print(f'Sorry, not enough {ingridients[i]}!')
+                    break
+            else:
+                print('I have enough resources, making you a coffee!')
+                water -= 200
+                milk -= 100
+                beans -= 12
+                cups -= 1
+                money += 6
+# fill action
+def fill():
+    print('Write how many ml of water do you want to add:')
+    add_water = int(input())
+    print('Write how many ml of milk do you want to add:')
+    add_milk = int(input())
+    print('Write how many grams of coffee beans do you want to add:')
+    add_beans = int(input())
+    print('Write how many disposable cups of coffee do you want to add:')
+    add_cups = int(input())
+    global water
+    global beans
+    global milk
+    global cups
+    water += add_water
+    milk += add_milk
+    beans += add_beans
+    cups += add_cups
+# take action
+def take():
+    global money
+    print('I gave you $' + str(money))
+    money = 0
+# main cycle
+def main_cycle():
+    while True:
+        print('Write action (buy, fill, take, remaining, exit):')
+        action = input()
+        if action == 'buy':
+            buy()
+        elif action == 'fill':
+            fill()
+        elif action == 'take':
+            take()
+        elif action == 'remaining':
+            remaining()
+        else:
+            break
 
 
-coffee_in_machine(400, 540, 120, 9, 550)
+main_cycle()
