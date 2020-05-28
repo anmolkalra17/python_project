@@ -9,4 +9,4 @@
 
 Find more info about these projects on [JetBrains Academy](https://www.jetbrains.com/academy/).
 
-![Python Logo] (https://www.cleanpng.com/png-programming-python-logo-programming-language-compu-6805560/)
+![Python Logo](https://pluspng.com/img-png/python-logo-png-python-logo-master-flat-symbolonly-cafepress4-png-1487.png)
