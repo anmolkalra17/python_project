@@ -6,34 +6,37 @@ words = ['python', 'java', 'kotlin', 'javascript']
 word = random.choice(words)
 
 out = len(word) * "-"
-life = 8
 guess_list = []
+life = 0
 print(out)
-while life > 0:
-    guess_letter = input("Input a letter:")
-    if guess_letter not in word:
-        print("No such letter in word \n")
-        life -= 1
-
-    for i in range(0, len(word)):
-        if guess_letter == word[i]:
-            print()
-            out = out[:i] + guess_letter + out[i + 1:]
-
-        if out == word:
-            print('You guessed the word!')
-            print('You survived!')
-            life = -1
-            break
-
+while True:
+    guess_letter = input("Input a letter: ")
     if guess_letter in word:
         guess_list.append(guess_letter)
 
+    if guess_letter not in word:
+        print("No such letter in the word")
+        life += 1
+
     if guess_list.count(guess_letter) > 1:
+        life += 1
         print("No improvements")
-        life -= 1
 
+    for i in range(0, len(word)):
+        if guess_letter == word[i]:
+            out = out[:i] + guess_letter + out[i + 1:]
+
+    if out == word:
+        print('You guessed the word!')
+        print('You survived!')
+        exit()
+
+    # if (life < 8) and (guess_letter in word):
+    #     print()
+
+    if life == 8:
+        print("You are hanged!")
+        exit()
+
+    print()
     print(out)
-
-if life == 0:
-    print("You are hanged!")
