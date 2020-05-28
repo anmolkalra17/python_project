@@ -5,5 +5,6 @@
 ### 4. Very Simple Chatbot
 ### 5. Zookeeper
 ### 6. Mean
+### 7. Hangman
 
 Find more info about these projects on [JetBrains Academy](https://www.jetbrains.com/academy/).
