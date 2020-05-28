@@ -1,12 +1,6 @@
 # Write your code here
 import random
 
-
-def show(output):
-    print()
-    print(output)
-
-
 print("H A N G M A N\n")
 words = ['python', 'java', 'kotlin', 'javascript']
 word = random.choice(words)
@@ -24,7 +18,6 @@ while True:
         print("No such letter in the word")
         print()
         life += 1
-        print(out)
 
     if guess_list.count(guess_letter) > 1:
         life += 1
@@ -40,8 +33,10 @@ while True:
         exit()
 
     if (life < 8) and (guess_letter in word):
-        show(out)
+        print()
 
     if life == 8:
         print("You are hanged!")
-        break
+        exit()
+
+    print(out)
