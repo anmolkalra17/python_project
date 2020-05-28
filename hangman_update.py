@@ -16,7 +16,6 @@ while True:
 
     if guess_letter not in word:
         print("No such letter in the word")
-        print()
         life += 1
 
     if guess_list.count(guess_letter) > 1:
@@ -32,11 +31,12 @@ while True:
         print('You survived!')
         exit()
 
-    if (life < 8) and (guess_letter in word):
-        print()
+    # if (life < 8) and (guess_letter in word):
+    #     print()
 
     if life == 8:
         print("You are hanged!")
         exit()
 
+    print()
     print(out)
