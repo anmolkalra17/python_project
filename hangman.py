@@ -7,30 +7,27 @@ word = random.choice(words)
 
 out = len(word) * "-"
 guess_list = []
-not_needed = []
-special_char = '+-/*!@#$%^&()_-=[]{}:;"\'<>.?|\`~ '
-life = 0
-win = False
+garbage = []
+life = 1
 print(out)
-while win is False:
+while True:
     guess_letter = input("Input a letter: ")
 
     if guess_letter in word:
         guess_list.append(guess_letter)
+    else:
+        garbage.append(guess_letter)
 
-    if len(guess_letter) != 1 or guess_letter is None:
+    if len(guess_letter) != 1 or len(guess_letter) is None:
         print("You should input a single letter")
 
-    if guess_letter.isupper() or guess_letter in special_char or guess_letter.isnumeric() or guess_letter is None:
+    elif guess_letter.isupper() or guess_letter.isnumeric() or (not guess_letter.isalpha()):
         print("It is not an ASCII lowercase letter")
 
-    if guess_letter not in word:
-        not_needed.append(guess_letter)
+    elif guess_list.count(guess_letter) > 1 or garbage.count(guess_letter):
+        print("You already typed this letter ")
 
-    if guess_list.count(guess_letter) > 1 or not_needed.count(guess_letter) > 1:
-        print("You already typed this letter")
-
-    elif guess_letter not in word and guess_letter.islower() and guess_letter not in special_char:
+    elif guess_letter not in word and guess_letter.isalpha() and guess_letter.islower():
         print("No such letter in the word")
         life += 1
 
@@ -39,12 +36,11 @@ while win is False:
             out = out[:i] + guess_letter + out[i + 1:]
 
     if out == word:
-        win = True
         print('You guessed the word!')
         print('You survived!')
         exit()
 
-    if life == 8:
+    if life == 9:
         print("You are hanged!")
         exit()
 
