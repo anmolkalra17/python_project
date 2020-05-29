@@ -1,4 +1,4 @@
-# Write your code here
+# Coffee machine v1.0
 water = 400
 milk = 540
 beans = 120
