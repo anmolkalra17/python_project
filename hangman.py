@@ -8,7 +8,7 @@ word = random.choice(words)
 out = len(word) * "-"
 guess_list = []
 not_needed = []
-special_char = '+-/*!@#$%^&()_-=[]{}:;"\'<>.?|" "\`~ '
+special_char = '+-/*!@#$%^&()_-=[]{}:;"\'<>.?|\`~ '
 life = 0
 print(out)
 while True:
