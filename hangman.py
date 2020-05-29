@@ -11,6 +11,7 @@ garbage = []
 life = 1
 print(out)
 while True:
+    print(len(guess_list), len(garbage))
     guess_letter = input("Input a letter: ")
 
     if guess_letter in word:
@@ -24,7 +25,7 @@ while True:
     elif guess_letter.isupper() or guess_letter.isnumeric() or (not guess_letter.isalpha()):
         print("It is not an ASCII lowercase letter")
 
-    elif guess_list.count(guess_letter) > 1 or garbage.count(guess_letter):
+    elif guess_list.count(guess_letter) > 1 or garbage.count(guess_letter) > 1:
         print("You already typed this letter ")
 
     elif guess_letter not in word and guess_letter.isalpha() and guess_letter.islower():
