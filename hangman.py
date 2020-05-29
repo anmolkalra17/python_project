@@ -1,4 +1,4 @@
-#Hangman v1.0
+#Hangman v1.0.1
 import random
 
 
@@ -37,7 +37,7 @@ def play():
                 out = out[:i] + guess_letter + out[i + 1:]
 
         if out == word:
-            print('You guessed the word!')
+            print('You guessed the word! ' + out)
             print('You survived!')
             exit()
 
