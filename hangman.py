@@ -8,7 +8,7 @@ word = random.choice(words)
 out = len(word) * "-"
 guess_list = []
 not_needed = []
-special_char = '+, -, /, *, !, @, #, $, %, ^, &, (, ), _, -, =, [, ], {, }, :, ;, ", \', <, >, , , ., ?, |, " ", \\ '
+special_char = '+-/*!@#$%^&()_-=[]{}:;"\'<>.?|" "\`~ '
 life = 0
 print(out)
 while True:
@@ -21,18 +21,20 @@ while True:
         print("It is not an ASCII lowercase letter")
         life += 1
 
-    elif guess_list.count(guess_letter) > 1 or not_needed.count(guess_letter) > 1:
-        life += 1
-        print("You already typed this letter")
-
-    elif len(guess_letter) != 1 or guess_letter is None:
+    if len(guess_letter) != 1 or guess_letter is None:
         print("You should input a single letter")
         life += 1
 
+    if guess_letter not in word:
+        not_needed.append(guess_letter)
+
     if guess_letter not in word and guess_letter.islower() and guess_letter not in special_char:
         print("No such letter in the word")
-        not_needed.append(guess_letter)
         life += 1
+
+    if guess_list.count(guess_letter) > 1 or not_needed.count(guess_letter) > 1:
+        life += 1
+        print("You already typed this letter")
 
     for i in range(0, len(word)):
         if guess_letter == word[i]:
