@@ -1,4 +1,4 @@
-# Write your code here
+# Hangman v1.0
 import random
 
 
