@@ -1,4 +1,4 @@
-# Hangman v1.0
+#Hangman v1.0
 import random
 
 
