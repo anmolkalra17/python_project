@@ -1,4 +1,4 @@
-# Coffee machine v1.0
+# Coffee machine v1.1
 water = 400
 milk = 540
 beans = 120
@@ -26,12 +26,12 @@ def buy():
         global cups
         num = int(str(cmd))
         avl_list = [water, milk, beans, cups]
-        ingridients = ['water', 'milk', 'coffee beans', 'disposable cups']
+        ingredients = ['water', 'milk', 'coffee beans', 'disposable cups']
         if num == 1:
             req_list = [250, 0, 16, 1]
             for i in range(4):
                 if avl_list[i] < req_list[i]:
-                    print(f'Sorry, not enough {ingridients[i]}!')
+                    print(f'Sorry, not enough {ingredients[i]}!')
                     break
             else:
                 print('I have enough resources, making you a coffee!')
@@ -43,7 +43,7 @@ def buy():
             req_list = [350, 75, 20, 1]
             for i in range(4):
                 if avl_list[i] < req_list[i]:
-                    print(f'Sorry, not enough {ingridients[i]}!')
+                    print(f'Sorry, not enough {ingredients[i]}!')
                     break
             else:
                 print('I have enough resources, making you a coffee!')
@@ -56,7 +56,7 @@ def buy():
             req_list = [200, 100, 12, 1]
             for i in range(4):
                 if avl_list[i] < req_list[i]:
-                    print(f'Sorry, not enough {ingridients[i]}!')
+                    print(f'Sorry, not enough {ingredients[i]}!')
                     break
             else:
                 print('I have enough resources, making you a coffee!')
